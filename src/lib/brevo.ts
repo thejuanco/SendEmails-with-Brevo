@@ -11,17 +11,17 @@ apiInstance.setApiKey(
 //Cofigurando el SMTP
 const smtpEmail = new brevo.SendSmtpEmail()
 
-interface Params {
+interface Params{
     subject: string
-    to: { email: string, name: string }[]
+    to: {email: string, name: string}[]
     htmlContent: string
 }
 
-export async function sendEmail({ subject, to, htmlContent }: Params) {
+export async function sendEmail({subject, to, htmlContent}: Params) {
     try {
         smtpEmail.subject = subject
         smtpEmail.to = to
-        smtpEmail.htmlContent = htmlContent
+        smtpEmail.htmlContent = `<html><body>${htmlContent}</body></html>`
         smtpEmail.sender = { name: "Juan Manuel Cruz", email: "210373@utxicotepec.edu.mx" }
 
         await apiInstance.sendTransacEmail(smtpEmail)

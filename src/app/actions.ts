@@ -1,5 +1,6 @@
 "use server"
 import { sendEmail } from "@/lib/brevo"
+import { redirect } from "next/navigation"
 
 export async function handleForm(formData: FormData){ //El form data hace referencia a los elementos dentro del formulario
 
@@ -22,4 +23,6 @@ export async function handleForm(formData: FormData){ //El form data hace refere
       }],
       htmlContent: content as string,
     })
+
+    redirect('/success')
   }
