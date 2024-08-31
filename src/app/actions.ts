@@ -5,13 +5,21 @@ export async function handleForm(formData: FormData){ //El form data hace refere
 
     //Extrayendo los valores del formulario
     const title = formData.get("title")
-    const to = formData.get("to")
+    const to_name = formData.get("to_name")
+    const to_email = formData.get("to_email")
     const content = formData.get("content")
 
     //Validacion
-    if (!title ||!to ||!content) {
+    if (!title ||!to_name ||!to_email ||!content) {
       return console.log('Todos los campos son obligatorios')
     }
 
-    await sendEmail()
+    await sendEmail({
+      subject: title as string,
+      to: [{
+       name: to_name as string,
+       email: to_email as string 
+      }],
+      htmlContent: content as string,
+    })
   }

@@ -19,7 +19,14 @@ export default function HomePage() {
             />
 
             <input
-              name="to"
+              name="to_name"
+              type="text"
+              placeholder="A quien va dirigido"
+              className="p-2 rounded-lg w-full border border-gray-300"
+            />
+
+            <input
+              name="to_email"
               type="email"
               placeholder="Dirigido a"
               className="p-2 rounded-lg w-full border border-gray-300"
