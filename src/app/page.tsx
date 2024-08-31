@@ -1,4 +1,4 @@
-import { sendEmail } from "./actions";
+import { handleForm } from "./actions";
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
           Ingresa los detalles del correo electronico que deseas enviar
         </p>
 
-        <form action={sendEmail} method="POST" className="flex flex-col mt-8">
+        <form action={handleForm} method="POST" className="flex flex-col mt-8">
           <div className="space-y-3">
             <input
               name="title"
